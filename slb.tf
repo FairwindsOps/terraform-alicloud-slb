@@ -13,6 +13,7 @@
 #limitations under the License.
 
 resource "alicloud_slb" "slb" {
+  provider             = "alicloud.${var.alicloud_region}"
   name                 = "${var.slb_name}"
   internet             = "${var.slb_internet}"
   internet_charge_type = "${var.slb_charge_type}"
