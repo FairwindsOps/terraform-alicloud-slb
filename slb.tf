@@ -22,24 +22,25 @@ resource "alicloud_slb" "slb" {
     {
       "instance_port" = "80"
       "lb_port"       = "80"
-      "lb_protocol"   = "http"
+      "lb_protocol"   = "tcp"
       "bandwidth"     = "-1"
 
-      "health_check_type" = "http"
-      "persistence_timeout" = 3600
       "healthy_threshold" = 8
       "unhealthy_threshold" = 8
       "health_check_timeout" = 8
       "health_check_interval" = 5
-      "health_check_http_code" = "http_2xx,http_3xx"
-      "health_check_timeout" = 8
     },
-#    {
-#      "instance_port" = "443"
-#      "lb_port"       = "443"
-#      "lb_protocol"   = "https"
-#      "bandwidth"     = "-1"
-#    },
+    {
+      "instance_port" = "443"
+      "lb_port"       = "443"
+      "lb_protocol"   = "tcp"
+      "bandwidth"     = "-1"
+
+      "healthy_threshold" = 8
+      "unhealthy_threshold" = 8
+      "health_check_timeout" = 8
+      "health_check_interval" = 5
+    },
   ]
 }
 
